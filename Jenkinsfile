@@ -1,5 +1,5 @@
-pipeline { 
-    agent any 
+pipeline {
+    agent any
 
     stages {
         stage('Build & Tag Docker Image') {
@@ -17,6 +17,7 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh "docker push adityag14/adservice:latest "
+                    }
                 }
             }
         }
